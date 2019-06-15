@@ -6,20 +6,41 @@ Se deberá crear un repositorio y realizar una serie de operaciones desde la con
 
 Se deberá entregar a través del formulario de prácticas indicando la URL del repositorio. En el repositorio, deberá existir un archivo readme.md con las respuestas a las siguientes preguntas:
 
-- ¿Qué comando utilizaste en el paso 11? ¿Por qué?
-- ¿Qué comando o comandos utilizaste en el paso 12? ¿Por qué?
-- El merge del paso 13, ¿Causó algún conflicto? ¿Por qué?
-- El merge del paso 19, ¿Causó algún conflicto? ¿Por qué?
-- El merge del paso 21, ¿Causó algún conflicto? ¿Por qué?
-- ¿Qué comando o comandos utilizaste en el paso 25?
-- El merge del paso 26, ¿Podría ser fast forward? ¿Por qué?
-- ¿Qué comando o comandos utilizaste en el paso 27?
-- ¿Qué comando o comandos utilizaste en el paso 28?
-- ¿Qué comando o comandos utilizaste en el paso 29?
-- ¿Qué comando o comandos utilizaste en el paso 30?
-- ¿Qué comando o comandos usaste en el paso 32?
-- ¿Qué comando o comandos usaste en el punto 33?
-ls
+- ¿Qué comando utilizaste en el paso 11? ¿Por qué?  
+git reset **--hard** HEAD~1  
+_Por que es el que permite un reset "físico"_
+- ¿Qué comando o comandos utilizaste en el paso 12? ¿Por qué?  
+git reflog  
+git reset **--hard** _ea36395_  
+_Es el comando que nos permite volver al punto indicado con cambios físicos_
+- El merge del paso 13, ¿Causó algún conflicto? ¿Por qué?  
+_No. Sin conflictos._
+- El merge del paso 19, ¿Causó algún conflicto? ¿Por qué?  
+_Sí hubo conflico porque encontró el mismo fichero modificado en ambas ramas y pide que se solucione el conflicto. Se modifica el fichero indicado, se actualiza, sube a staging area y se hace el commit._
+- El merge del paso 21, ¿Causó algún conflicto? ¿Por qué?  
+_NO, Sin conflictos._
+- ¿Qué comando o comandos utilizaste en el paso 25?  
+git log --graph
+- El merge del paso 26, ¿Podría ser fast forward? ¿Por qué?  
+_No podría ser **fast forward** porque exite el mismo fichero con la línea modificada del título. Daría conflicto._
+- ¿Qué comando o comandos utilizaste en el paso 27?  
+git reset AHEAD~1
+- ¿Qué comando o comandos utilizaste en el paso 28?  
+git checkout -- git-nuestro.md
+- ¿Qué comando o comandos utilizaste en el paso 29?  
+git branch -D title
+- ¿Qué comando o comandos utilizaste en el paso 30?  
+git reflog  
+git reset _7d25fed_
+- ¿Qué comando o comandos usaste en el paso 32?  
+git reflog  
+git checkout _31739b7_
+- ¿Qué comando o comandos usaste en el punto 33?  
+git reflog  
+git checkout _64632be_
+
+
+#### Todos los pasos están indicados en detalle a continuación...
 ---
 
 
@@ -317,7 +338,7 @@ HEAD está ahora en d258c66 4.- Subimos git-nuestro.md al repositorio
 ### 33. Volver al estado final, cuando pusimos título al poema
 
 Buscamos y volvemos
->git reflog  (_usamos el mismo anterior_)
+>git reflog  (_usamos el mismo anterior_)  
 >git checkout 64632be
 >>__Salida__:    
 La posición previa de HEAD era d258c66 4.- Subimos git-nuestro.md al repositorio  
@@ -350,7 +371,7 @@ HEAD está ahora en 5a3f767 18. Modificado y subido el fichero git-commit
 
 ### Terminado... Subimos el repositorio a GitHub
 Preparo en la staging area **todos** los ficheros de la carpeta y los subimos al repositorio
->git add readme.md *.png docs
+>git add readme.md *.png docs  
 >git commit -m "Terminado. Subimos proyecto al repositorio en GitHub"  
 >git remote add origin https://github.com/Santi72Alc/practicaGit.git  
 >git push -u origin master
